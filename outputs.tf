@@ -61,37 +61,39 @@ output "public_zones_ids" {
 
   value = "${concat(
     formatlist(
-      "{\"%v\": \"%v\"}",
+      "%v:%v",
       aws_route53_zone.name_delegated_public_domains.*.name,
       aws_route53_zone.name_delegated_public_domains.*.id,
     ),
     formatlist(
-      "{\"%v\": \"%v\"}",
+     "%v:%v",
       aws_route53_zone.id_delegated_public_domains.*.name,
       aws_route53_zone.id_delegated_public_domains.*.id,
     ),
     formatlist(
-      "{\"%v\": \"%v\"}",
+     "%v:%v",
       aws_route53_zone.undelegated_public_domains.*.name,
       aws_route53_zone.undelegated_public_domains.*.id,
     ),
     formatlist(
-      "{\"%v\": \"%v\"}",
+     "%v:%v",
       aws_route53_zone.name_delegated_public_subdomains.*.name,
       aws_route53_zone.name_delegated_public_subdomains.*.id,
     ),
     formatlist(
-      "{\"%v\": \"%v\"}",
+     "%v:%v",
       aws_route53_zone.id_delegated_public_subdomains.*.name,
       aws_route53_zone.id_delegated_public_subdomains.*.id,
     ),
     formatlist(
-      "{\"%v\": \"%v\"}",
+     "%v:%v",
       aws_route53_zone.undelegated_public_subdomains.*.name,
       aws_route53_zone.undelegated_public_subdomains.*.id,
     ),
   )}"
 }
+
+
 
 #output "public_zones_name_servers" {
 #  description = "List of zone-nameserver mappings for created public zones."
